@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
+import Dashboard from "./components/dashboard/Dashboard";
+import ProjectDetails from "./components/projects/ProjectDetails";
 
 class App extends Component {
   render() {
@@ -8,6 +10,10 @@ class App extends Component {
       <Router>
         <div className="app">
           <Navbar />
+          <Switch>
+            <Route exact path="/" component={Dashboard}></Route>
+            <Route path="/project/:id" component={ProjectDetails}></Route>
+          </Switch>
         </div>
       </Router>
     );
